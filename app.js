@@ -13,6 +13,26 @@ app.use(express.static('public'));
 
 // Creamos una ruta con contenido
 app.get("/", (req, res) => {
+    res.render("pages/index");
+});
+
+app.get("/products", (req, res) => {
+    res.render("pages/products");
+});
+
+app.get("/cart", (req, res) => {
+    res.render("pages/cart");
+});
+
+app.get("/checkout", (req, res) => {
+    res.render("pages/checkout");
+});
+
+app.get("/register", (req, res) => {
+    res.render("pages/register");
+});
+
+app.get("/login", (req, res) => {
     res.render("pages/login");
 });
 

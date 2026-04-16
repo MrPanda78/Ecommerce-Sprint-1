@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/productCard.css">
+<link rel="stylesheet" href="/css/user-menu.css">
+
+<%- include('partials/user-menu') %>
+<%- include('partials/header', { loggedIn: loggedIn }) %>
+<main>
+    <div class="container1">
+        <%- include('partials/nav') %>
+    </div>
+    <div class="container2">
+        <img src="/images/image1.png" alt="Benefit 1">
+        <img src="/images/image2.png" alt="Benefit 2">
+    </div>
+    <div class="container3">
+        <h2 class="">Te puede interesar</h2>
+        <div class="interests">
+            <% interests.forEach(product => { %>
+                <%- include('partials/productCard', { 
+                    name: product.name,
+                    image: product.image,
+                    points: product.points
+                }) %>
+            <% }) %>
+        </div>
+        <h2 class="interests-title">Los más pedidos</h2>
+        <div class="interests">
+            <% mostRequested.forEach(product => { %>
+                <%- include('partials/productCard', { 
+                    name: product.name,
+                    image: product.image,
+                    points: product.points
+                }) %>
+            <% }) %>
+        </div>
+    </div>
+    <div class="container1">
+        <%- include('partials/nav') %>
+    </div>
+</main>
+<%- include('partials/footer') %>
+
+<script>
+    const userBtn = document.getElementById('userBtn');
+    const dropdown = document.getElementById('userDropdown');
+
+    userBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!userBtn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+</script>

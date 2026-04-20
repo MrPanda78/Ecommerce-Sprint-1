@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/user-menu.css">
+<link rel="stylesheet" href="/css/productCart.css">
+<link rel="stylesheet" href="/css/breadCrumb.css">
+<link rel="stylesheet" href="/css/cart.css">
+
+<%- include('partials/user-menu') %>
+<%- include('partials/header', { loggedIn: loggedIn }) %>
+<main style="background-color: #f4f4f4;">
+    <div class="container3">
+        <%- include('partials/breadCrumb', { page: 'checkout' }) %>
+        <h1>Opciones de pago</h1>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; gap: 0.5rem; font-weight: bold; font-size: 20px;">
+                <input type="radio" name="payment_method">Efectivo</input>
+            </div>
+            <div style="display: flex; gap: 0.5rem; font-weight: bold; font-size: 20px;">
+                <input type="radio" name="payment_method">Transferencia</input>
+            </div>
+            <div style="display: flex; gap: 0.5rem; font-weight: bold; font-size: 20px;">
+                <input type="radio" name="payment_method">Débito/Crédito</input>
+            </div>
+            <div class="total-points-and-checkout-button">
+                <h1>Total a pagar: <span id="checkoutTotal">0</span></h1>
+                <button style="width: 100px;" class="button-remove-item-cart">Pagar</button>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('partials/footer') %>
+
+<script>
+    const userBtn = document.getElementById('userBtn');
+    const dropdown = document.getElementById('userDropdown');
+
+    userBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!userBtn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+
+    const total = parseInt(sessionStorage.getItem('totalPoints') || 0);
+    document.getElementById('checkoutTotal').textContent = new Intl.NumberFormat('es-CL').format(total);
+</script>

@@ -1,0 +1,6 @@
+.total-points-and-checkout-button {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    align-items: end;
+}

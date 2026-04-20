@@ -61,6 +61,8 @@ main {
     padding-bottom: 0.5rem;
     font-size: 0.75rem;
     transition: background-color 0.3s ease 0.1s;
+    text-decoration: none;
+    text-align: center;
 }
 
 .button-login:hover {

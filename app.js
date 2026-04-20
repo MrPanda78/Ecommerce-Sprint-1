@@ -70,7 +70,12 @@ app.get("/product", (req, res) => {
 });
 
 app.get("/cart", (req, res) => {
-    res.render("pages/cart", { loggedIn: 1 });
+    const productsCart = [
+        { name: 'Whiskey Blenders Pride 750ml', image: '/images/coca_cola_lata.webp', points: '19.900' },
+        { name: 'Whiskey Blenders Pride 750ml', image: '/images/whisky.webp', points: '1.000' }
+    ];
+
+    res.render("pages/cart", { loggedIn: 1, productsCart });
 });
 
 app.get("/checkout", (req, res) => {

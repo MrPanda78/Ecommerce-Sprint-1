@@ -28,6 +28,7 @@ main {
 }
 
 .box-login {
+    width: 250px;
     display: flex;
     flex-direction: column;
     padding: 2rem 1.5rem;
@@ -85,6 +86,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-size: 0.70rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 footer svg {
@@ -119,4 +122,19 @@ footer > div:first-child svg {
 .apps {
     display: flex;
     align-items: center;
+}
+
+.box1 { order: 2; }
+.box2 { order: 1; }
+.box3 { order: 3; }
+
+@media (min-width: 431px) {
+    footer { 
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .box1 { order: 1; }
+    .box2 { order: 2; }
+    .box3 { order: 3; }
 }

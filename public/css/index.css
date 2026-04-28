@@ -16,6 +16,19 @@ body {
     align-items: center;
 }
 
+.logo1{
+    display: none; /*ocuptar*/
+}
+.logo2{
+    display: block;
+}
+
+@media (min-width: 431px)
+{
+    .logo1{display: block;}
+    .logo2{display: none;}
+}
+
 .search-container {
     position: relative;
     width: 80%;
@@ -84,7 +97,7 @@ body {
 .user {
     background: #2b2f36;
     border-radius: 999px;
-    padding: 6px 12px 6px 6px;
+    padding: 6px 6px 6px 6px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -105,6 +118,19 @@ body {
 .user span {
     color: #e5e7eb;
     font-size: 14px;
+    display: none;
+
+}
+
+@media (min-width: 431px)
+{
+    .user{
+        padding: 6px 12px 6px 6px;
+    }
+
+    .user span {
+        display: block;
+    }
 }
 
 main {
@@ -120,26 +146,27 @@ main {
     align-items: center;
     width: 100%;
     background-color: #f4f4f4;
-    padding: 4rem 6rem;
+    padding: 2rem 1rem;
     box-sizing: border-box;    /* importante para que el padding no desborde */
 }
 
 nav {
     display: flex;
-    align-items: center;
+    align-items: start;
     background: #3a3a3a;
     padding: 10px;
-    border-radius: 12px;
-    gap: 0;                    /* sacamos el gap y utilizamos space-between */
+    border-radius: 12px;                   
     justify-content: space-between;  /* distribuye los items */
     width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .item {
     width: auto;
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 4px;
     color: #d1d5db;
@@ -154,8 +181,8 @@ nav {
 }
 
 .icon {
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     stroke: currentColor;   /* hereda color */
     fill: none;
     stroke-width: 1.8;
@@ -167,6 +194,62 @@ nav {
     width: 2px;
     height: 40px;
     background: #6b7280;
+    display: none;
+}
+
+@media(min-width: 431px) {
+
+    .container1 {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: #f4f4f4;
+        padding: 4rem 6rem;
+        box-sizing: border-box;    /* importante para que el padding no desborde */
+    }
+
+    nav 
+    {
+        display: flex;
+        align-items: center;
+        background: #3a3a3a;
+        padding: 10px;
+        border-radius: 12px;
+        gap: 0;                    /* sacamos el gap y utilizamos space-between */
+        justify-content: space-between;  /* distribuye los items */
+        width: 100%;
+        flex-direction: row;
+    }
+    .divider
+    {
+        width: 2px;
+        height: 40px;
+        background: #6b7280;
+        display: block;
+    }
+
+    .item {
+        width: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        color: #d1d5db;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        padding: 0.5rem;
+    }
+
+    .icon {
+        width: 2rem;
+        height: 2rem;
+        stroke: currentColor;   /* hereda color */
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+}
 }
 
 .item:hover {
@@ -185,13 +268,37 @@ nav {
     background-color: #0cb093;
     padding: 0 6rem;
     box-sizing: border-box;    /* importante para que el padding no desborde */
-    gap: 10px;
+    gap: 30px;
     padding-bottom: 1rem;
+    flex-direction: column;
 }
 
 .container2 img {
     margin-top: -20px; /* margin negativo para que las imágenes suban hacia arriba */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 336px;
+}
+
+@media(min-width: 850px){
+    
+    .container2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: #0cb093;
+        padding: 0 6rem;
+        box-sizing: border-box;    /* importante para que el padding no desborde */
+        gap: 10px;
+        padding-bottom: 1rem;
+        flex-direction: row;
+    }
+
+    .container2 img {
+        margin-top: -20px; /* margin negativo para que las imágenes suban hacia arriba */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        width: 400px;
+    }
 }
 
 .container3 {
@@ -238,6 +345,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-size: 0.70rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 footer svg {
@@ -256,7 +365,7 @@ footer > div:first-child svg {
     width: 20px;
     height: 20px;
     display: block;
-    overflow: visible; /* por si el path se corta */
+    overflow: visible; 
 }
 
 .copyright {
@@ -272,4 +381,19 @@ footer > div:first-child svg {
 .apps {
     display: flex;
     align-items: center;
+}
+
+.box1 { order: 2; }
+.box2 { order: 1; }
+.box3 { order: 3; }
+
+@media (min-width: 431px) {
+    footer { 
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .box1 { order: 1; }
+    .box2 { order: 2; }
+    .box3 { order: 3; }
 }

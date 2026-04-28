@@ -3,13 +3,36 @@
 <link rel="stylesheet" href="/css/user-menu.css">
 <link rel="stylesheet" href="/css/productContainer.css">
 <link rel="stylesheet" href="/css/breadCrumb.css">
+<link rel="stylesheet" href="/css/product.css">
 
 <%- include('partials/user-menu') %>
 <%- include('partials/header', { loggedIn: loggedIn }) %>
 <main>
-    <div class="container3">
+    <div class="container4">
         <%- include('partials/breadCrumb', { page: 'product' }) %>
         <%- include('partials/productContainer') %>
+    </div>
+    <div class="container4-mobile">
+        <%- include('partials/breadCrumb', { page: 'product' }) %>
+        <div class="product-container-mobile">
+            <h2 class="title"><%= product.name %></h2>
+            <div class="main-image-mobile">
+                <img src="<%= product.images[0] %>" alt="producto" />
+            </div>
+            <div class="thumbs-mobile">
+                <% product.images.forEach((img, i) => { %>
+                    <img src="<%= img %>" class="thumb <%= i === 0 ? 'active' : '' %>" />
+                <% }) %>
+            </div>
+            <div class="price">
+                <span class="amount"><%= product.price %></span>
+                <span class="points">PUNTOS</span>
+            </div>
+            <div class="description">
+                <p><%- product.description.replace(/\n/g, "<br>") %></p>
+            </div>
+            <button class="btn-add">Agregar al carrito</button>
+        </div>
     </div>
     <div class="container3">
         <h2 class="">También te puede interesar</h2>
